@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Mompox E-Commerce</string>
+
+    <string-array name="filter_options">
+    <item>Todos</item>
+    <item>Precio Ascendente</item>
+    <item>Precio Descendente</item>
+    <item>Panadería</item>
+    <item>Dulces</item>
+    <item>Bebidas</item>
+</string-array>
+
+
+
+</resources>

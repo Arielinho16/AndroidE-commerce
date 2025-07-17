@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/catalogFragment">
+
+    <!-- Inicio de sesión -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.mompoxe_commerce.ui.login.LoginFragment"
+        android:label="Login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_catalogFragment"
+            app:destination="@id/catalogFragment"/>
+
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"/>
+
+    </fragment>
+
+    <!-- Registro -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.mompoxe_commerce.ui.login.RegisterFragment"
+        android:label="Registro">
+
+        <action
+            android:id="@+id/action_registerFragment_to_catalogFragment"
+            app:destination="@id/catalogFragment"/>
+    </fragment>
+
+    <!-- Mis Pedidos -->
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.mompoxe_commerce.ui.favorites.FavoritosFragment"
+        android:label="Favoritos">
+
+        <action
+            android:id="@+id/action_favoritesFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+
+
+    <!-- Favoritos -->
+
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.mompoxe_commerce.ui.favorites.FavoritosFragment"
+        android:label="Favoritos" />
+
+
+
+    <!-- Catálogo -->
+    <fragment
+        android:id="@+id/catalogFragment"
+        android:name="com.example.mompoxe_commerce.ui.catalog.CatalogFragment"
+        android:label="Catálogo">
+
+        <action
+            android:id="@+id/action_catalogFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+
+        <action
+            android:id="@+id/action_catalogFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+
+        <action
+            android:id="@+id/action_catalogFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <!-- Detalle de Producto -->
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.mompoxe_commerce.ui.catalog.ProductDetailFragment"
+        android:label="Detalle del Producto">
+        <argument
+            android:name="product"
+            app:argType="com.example.mompoxe_commerce.data.model.Product" />
+    </fragment>
+
+  <!-- Carrito -->
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.mompoxe_commerce.ui.cart.CartFragment"
+        android:label="Carrito">
+
+        <!-- Acción para ir a Checkout -->
+        <action
+            android:id="@+id/action_cartFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+
+    </fragment>
+
+
+
+    <!-- Checkout -->
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.mompoxe_commerce.ui.checkout.CheckoutFragment"
+        android:label="Checkout">
+        <argument
+            android:name="totalAmount"
+            app:argType="float" />
+
+        <action
+            android:id="@+id/action_checkoutFragment_to_paymentMethodFragment"
+            app:destination="@id/paymentMethodFragment" />
+    </fragment>
+
+    <!-- Método de Pago -->
+    <fragment
+        android:id="@+id/paymentMethodFragment"
+        android:name="com.example.mompoxe_commerce.ui.payment.PaymentMethodFragment"
+        android:label="Método de Pago">
+        <argument
+            android:name="totalAmount"
+            app:argType="float" />
+        <argument
+            android:name="pickupPin"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+</navigation>
+
