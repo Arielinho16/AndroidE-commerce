@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation("com.google.code.gson:gson:2.10.1")
+    implementation("org.osmdroid:osmdroid-android:6.1.16")
     ksp("com.github.bumptech.glide:ksp:4.15.1")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")

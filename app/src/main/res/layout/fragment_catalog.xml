@@ -5,19 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--  Toolbar agregado arriba de todo -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:title="Catálogo"
-        android:titleTextColor="@android:color/white"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
     <!-- Barra de búsqueda con lupa -->
     <LinearLayout
         android:id="@+id/layoutSearchBar"
@@ -26,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:gravity="center_vertical"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -85,4 +72,3 @@
         android:layout_margin="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

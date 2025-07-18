@@ -72,8 +72,6 @@ class CatalogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-
         super.onViewCreated(view, savedInstanceState)
 
         //  solo inicializar adapter si es null

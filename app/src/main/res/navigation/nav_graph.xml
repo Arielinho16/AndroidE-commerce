@@ -34,6 +34,12 @@
 
     <!-- Mis Pedidos -->
     <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.example.mompoxe_commerce.ui.orders.MisPedidosFragment"
+        android:label="Mis Pedidos" />
+        
+    <!-- Favoritos -->
+    <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.mompoxe_commerce.ui.favorites.FavoritosFragment"
         android:label="Favoritos">
@@ -42,14 +48,6 @@
             android:id="@+id/action_favoritesFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
     </fragment>
-
-
-    <!-- Favoritos -->
-
-    <fragment
-        android:id="@+id/favoritesFragment"
-        android:name="com.example.mompoxe_commerce.ui.favorites.FavoritosFragment"
-        android:label="Favoritos" />
 
 
 

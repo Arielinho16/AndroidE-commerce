@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- ✅ Toolbar arriba -->
+    <!-- Toolbar visual independiente -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -13,12 +13,11 @@
         android:background="?attr/colorPrimary"
         android:title="Iniciar Sesión"
         android:titleTextColor="@android:color/white"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- ✅ Contenido debajo de la Toolbar -->
+    <!-- Contenido -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -61,8 +60,7 @@
                 android:layout_height="wrap_content"
                 android:text="Registrarse"
                 android:layout_marginTop="8dp"/>
-
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+

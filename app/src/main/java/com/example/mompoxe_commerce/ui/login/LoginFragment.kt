@@ -30,19 +30,18 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        setHasOptionsMenu(true)
-        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // Toolbar visual sin afectar al MainActivity
+        binding.toolbar.setNavigationIcon(R.drawable.ic_arrow_back) // usa el ícono que tengas
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
 
-
-        // ✅ Autologin si ya tiene sesión guardada
         val email = getUserSession(requireContext())
         if (email != null) {
             navigateToCatalog()
             return
         }
 
-        // ✅ BOTÓN DE LOGIN
         binding.buttonLogin.setOnClickListener {
             val emailInput = binding.editTextEmail.text.toString().trim()
             val passwordInput = binding.editTextPassword.text.toString().trim()
@@ -71,12 +70,14 @@ class LoginFragment : Fragment() {
             navigateToCatalog()
         }
 
-        // ✅ BOTÓN DE REGISTRARSE
         binding.buttonRegister.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             findNavController().navigate(action)
         }
     }
+
+
+
 
     private fun navigateToCatalog() {
         val prefs = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)

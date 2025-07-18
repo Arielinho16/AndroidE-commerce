@@ -18,20 +18,14 @@ class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        setHasOptionsMenu(true)
-        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // Toolbar visual independiente con botón de volver
+        binding.toolbar.setNavigationIcon(R.drawable.ic_arrow_back) // usa tu ícono aquí
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
 
         binding.buttonCreateAccount.setOnClickListener {
             val nombre = binding.editTextNombre.text.toString().trim()
@@ -55,18 +49,19 @@ class RegisterFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            // ✅ Guardar el usuario
+            // Guardar usuario
             LoginFragment.registerUser(requireContext(), email, password)
 
-            // ✅ Guardar sesión
+            // Guardar sesión
             LoginFragment.saveUserSession(requireContext(), email)
 
             Toast.makeText(requireContext(), "Registro exitoso", Toast.LENGTH_SHORT).show()
 
-            // ✅ Navegar al catálogo
             findNavController().navigate(R.id.action_registerFragment_to_catalogFragment)
         }
     }
+
+
 
     @Deprecated("Override for menu navigation")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
